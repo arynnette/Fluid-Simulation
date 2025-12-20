@@ -1,32 +1,15 @@
 cmake_minimum_required(VERSION 3.15)
 project(FluidSimulation)
 
-set(CMAKE_TOOLCHAIN_FILE "C:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake")
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Find libraries
-find_package(glfw3 CONFIG REQUIRED)
-find_package(GLEW REQUIRED)
-find_package(glm CONFIG REQUIRED)
-find_package(imgui CONFIG REQUIRED)
+# raylib path
+set(RAYLIB_DIR "./libs/raylib/raylib-5.5_win64_msvc16")
+include_directories(${RAYLIB_DIR}/include)
+link_directories(${RAYLIB_DIR}/lib)
 
-# Source files
-set(SOURCES
-    src/main.cpp
-    src/shader.cpp
-)
+# src files
+add_executable(fluid_sim src/main.cpp)
 
-# Create executable
-add_executable(fluid_sim ${SOURCES})
-
-# Link libraries
-target_link_libraries(fluid_sim PRIVATE 
-    glfw 
-    GLEW::GLEW 
-    glm::glm
-    imgui::imgui
-)
-
-# Copy shaders to build directory
-file(COPY ${CMAKE_SOURCE_DIR}/shaders DESTINATION ${CMAKE_BINARY_DIR})
+# link the stuff
+target_link_libraries(fluid_sim PRIVATE raylib opengl32 gdi32 winmm)
