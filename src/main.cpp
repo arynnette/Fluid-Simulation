@@ -11,8 +11,9 @@ int main() {
         BeginDrawing();
         ClearBackground(RAYWHITE);
         
-        DrawText("HI", 190, 200, 40, BLACK);
-        DrawFPS(10, 10);
+        const char* text = "Hi again.";
+        int textWidth = MeasureText(text, 40);
+        DrawText(text, screenWidth / 2 - textWidth / 2, screenHeight / 2 - 20, 40, BLACK);
         
         EndDrawing();
     }

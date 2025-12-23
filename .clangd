@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - "-IC:\\Users\\cjans\\Documents\\GitHub\\FluidSimulation\\libs\\raylib\\raylib-5.5_win64_msvc16\\include"
+    - "-std=c++17"
+  Remove:
+    - "-m*"
+    - "-f*"
