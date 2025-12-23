@@ -1,12 +1,10 @@
-# for the mac loser
-# before you run this remember to call chgr +x build-run-mac.sh to make it executable
-#and then you can run it like a cool person
+# for the mac aka linux professionals
+# before you run this remember to call chmod +x build-run-mac.sh to permit execution
+# and to run it from the terminal with ./build-run-mac.sh
 
 cd "$(dirname "$0")"
 
-rm -rf build
-
-cmake -B build
+cmake -S . -B build
 cmake --build build
 
 ./build/fluid_sim
