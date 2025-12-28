@@ -5,6 +5,8 @@
 #include "collision.h"
 #include <vector>
 
+using namespace std;
+
 static void InitSim(void); // initialize the simulation
 static void UpdateSim(void); // update a single frame of simulation
 static void DrawSim(void); // draw the visuals on the frame
@@ -13,9 +15,9 @@ static void UpdateDrawSim(void); // update & draw
 
 const float acceleration = GRAVITY;
 
-EulerIntegrator integrator(1.0f / 120.0f);
-CollisionHandler collisionHandler(10.0f, 0.8f);
-std::vector<Particle> particles;
+Integrator integrator(1.0f / TIME_SCALE);
+CollisionHandler collisionHandler(10.0f, 0.6f);
+vector<Particle> particles;
 
 int main() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "arsenii likes balls");
@@ -34,10 +36,17 @@ int main() {
 }
 
 void InitSim(void) {
-    particles.emplace_back(Vector2{SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f}, 1.0f);
+    for (int i = 0; i < 20; i++) {
+        particles.emplace_back(
+            Vector2{(SCREEN_WIDTH / 2.0f) - i, (SCREEN_HEIGHT / 2.0f) + i * 15}, i
+        );
+
+    }
 }
 
 void UpdateSim() {
+    collisionHandler.clearContacts();  // reset the contacts that happened
+    
     const int substeps = 4;  // subdivide time step
     float dt = 1.0f / TIME_SCALE / substeps;
     

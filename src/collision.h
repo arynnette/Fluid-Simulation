@@ -1,20 +1,24 @@
 #ifndef COLLISION_H
 #define COLLISION_H
 
+#include "constants.h"
 #include "particle.h"
 #include <vector>
+#include <set>
 
 class CollisionHandler {
 private:
     float restitution;
     float minDistance;
+    std::set<std::pair<size_t, size_t>> contactsThisFrame;
 
 public:
-    CollisionHandler(float minDist = 10.0f, float rest = 0.8f)
+    CollisionHandler(float minDist = MINIMUM_PARTICLE_DISTANCE, float rest = PARTICLE_RESTITUTION)
         : minDistance(minDist), restitution(rest) {}
 
     void handleCollisions(std::vector<Particle>& particles);
     void handleBoundaryCollisions(std::vector<Particle>& particles);
+    void clearContacts() { contactsThisFrame.clear(); }
 };
 
 #endif
