@@ -3,8 +3,15 @@ project(FluidSimulation LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+endif()
+
 # src files
-add_executable(fluid_sim src/main.cpp)
+add_executable(fluid_sim 
+    src/main.cpp
+    src/collision.cpp
+)
 
 if(WIN32)
     # raylib path
