@@ -1,6 +1,5 @@
 #include "collision.h"
 #include "constants.h"
-#include <cmath>
 #include <vector>
 
 using namespace std;
