@@ -59,7 +59,7 @@ void UpdateSim() {
         for (auto& p : particles)
             integrator.integrate(p);
     
-        collisionHandler.handleCollisions(particles);
+        
         collisionHandler.handleBoundaryCollisions(particles);
     }
 }

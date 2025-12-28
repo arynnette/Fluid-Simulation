@@ -16,7 +16,6 @@ public:
     CollisionHandler(float minDist = MINIMUM_PARTICLE_DISTANCE, float rest = PARTICLE_RESTITUTION)
         : minDistance(minDist), restitution(rest) {}
 
-    void handleCollisions(std::vector<Particle>& particles);
     void handleBoundaryCollisions(std::vector<Particle>& particles);
     void clearContacts() { contactsThisFrame.clear(); }
 };
