@@ -5,6 +5,7 @@
 #include "constants.h"
 #include "integrator.h"
 #include "particle.h"
+#include "raylib.h "
 #include "raylib.h"
 #include "utility.h"
 
@@ -64,11 +65,11 @@ void UpdateSim() {
 void DrawSim() {
   BeginDrawing();
 
-  ClearBackground(RAYWHITE);
+  ClearBackground(BLACK);
   DrawText("stephon also likes balls", 10, 10, 20, GRAY);
 
   for (const auto &particle : particles) {
-    DrawCircleV(particle.position, PARTICLE_RADIUS, BLACK);
+    DrawCircleV(particle.position, PARTICLE_RADIUS, SKYBLUE);
   }
 
   EndDrawing();
