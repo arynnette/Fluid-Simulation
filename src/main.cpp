@@ -38,7 +38,7 @@ int main() {
 }
 
 void InitSim(void) { 
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < PARTICLE_COUNT; i++) {
     particles.emplace_back(
       utility::generateVector2WithinBounds(), i
     );
