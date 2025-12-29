@@ -7,6 +7,9 @@ namespace utility {
         std::uniform_int_distribution<int> dist_x(1, SCREEN_WIDTH);
         std::uniform_int_distribution<int> dist_y(1, SCREEN_HEIGHT);
 
-        return Vector2 { dist_x(mt_engine) / 1.0f, dist_y(mt_engine) / 1.0f };
+        return Vector2 { 
+            static_cast<float>(dist_x(mt_engine)),
+            static_cast<float>(dist_y(mt_engine))
+        };
     };
 }
