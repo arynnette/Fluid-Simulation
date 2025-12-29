@@ -1,6 +1,6 @@
 #include "utility.h"
 
-namespace vectorgen {
+namespace utility {
     Vector2 generateVector2WithinBounds() {
         std::mt19937_64 mt_engine(std::random_device{}());
 
