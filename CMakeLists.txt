@@ -11,6 +11,7 @@ endif()
 add_executable(fluid_sim 
     src/main.cpp
     src/collision.cpp
+    src/utility.cpp
 )
 
 if(WIN32)

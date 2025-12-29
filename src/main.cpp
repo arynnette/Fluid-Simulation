@@ -1,10 +1,12 @@
+
+#include <vector>
+
 #include "collision.h"
 #include "constants.h"
 #include "integrator.h"
 #include "particle.h"
 #include "raylib.h"
-#include <vector>
-
+#include "utility.h"
 
 using namespace std;
 
@@ -35,10 +37,11 @@ int main() {
   return 0;
 }
 
-void InitSim(void) {
-  for (int i = 0; i < 20; i++) {
+void InitSim(void) { 
+  for (int i = 0; i < 100; i++) {
     particles.emplace_back(
-        Vector2{(SCREEN_WIDTH / 2.0f) - i, (SCREEN_HEIGHT / 2.0f) + i * 15}, i);
+      utility::generateVector2WithinBounds(), i
+    );
   }
 }
 
