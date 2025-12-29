@@ -1,5 +1,4 @@
-#ifndef COLLISION_H
-#define COLLISION_H
+#pragma once
 
 #include "constants.h"
 #include "particle.h"
@@ -19,5 +18,3 @@ public:
     void handleBoundaryCollisions(std::vector<Particle>& particles);
     void clearContacts() { contactsThisFrame.clear(); }
 };
-
-#endif

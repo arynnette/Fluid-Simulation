@@ -1,5 +1,4 @@
-#ifndef INTEGRATOR_H
-#define INTEGRATOR_H
+#pragma once
 
 #include "particle.h"
 #include "constants.h"
@@ -24,5 +23,3 @@ public:
     void setTimeStep(float timeStep) { dt = timeStep; }
     float getTimeStep() const { return dt; }
 };
-
-#endif
