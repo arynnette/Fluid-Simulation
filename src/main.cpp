@@ -5,7 +5,6 @@
 #include "constants.h"
 #include "integrator.h"
 #include "particle.h"
-#include "raylib.h "
 #include "raylib.h"
 #include "utility.h"
 
